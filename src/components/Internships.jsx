@@ -1,8 +1,18 @@
 import { FaLaptopCode, FaRobot } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 function Internships() {
   return (
     <section id="internships" className="py-24 px-6 bg-slate-950">
+      <motion.div
+ initial={{ opacity: 0, y: 50 }}
+ whileInView={{ opacity: 1, y: 0 }}
+ viewport={{ once: true }}
+ transition={{ duration: 0.6 }}
+>
+  ...
+</motion.div>
+
       <div className="max-w-6xl mx-auto">
 
         <h2 className="text-4xl font-bold text-center mb-12">

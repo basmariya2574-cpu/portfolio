@@ -69,14 +69,15 @@ function Hero() {
         >
           <a
             href="/resume.pdf"
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-xl transition"
+            download
+            className="bg-blue-600 px-6 py-3 rounded-xl"
           >
             <FaDownload />
             Download Resume
           </a>
-
+           
           <a
-            href="https://linkedin.com"
+            href="https://linkedin.com/in/Basma Riswan"
             target="_blank"
             rel="noreferrer"
             className="flex items-center gap-2 border border-slate-600 hover:border-blue-500 px-6 py-3 rounded-xl transition"
@@ -86,7 +87,7 @@ function Hero() {
           </a>
 
           <a
-            href="https://github.com"
+            href="https://github.com/basmariya2574-cpu/AniStream.git"
             target="_blank"
             rel="noreferrer"
             className="flex items-center gap-2 border border-slate-600 hover:border-blue-500 px-6 py-3 rounded-xl transition"

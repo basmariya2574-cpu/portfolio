@@ -1,6 +1,17 @@
+import { motion } from "framer-motion";
+
 function Education() {
   return (
     <section id="education" className="py-24 px-6 bg-slate-900">
+      <motion.div
+ initial={{ opacity: 0, y: 50 }}
+ whileInView={{ opacity: 1, y: 0 }}
+ viewport={{ once: true }}
+ transition={{ duration: 0.6 }}
+>
+  ...
+</motion.div>
+
       <div className="max-w-5xl mx-auto">
 
         <h2 className="text-4xl font-bold text-center mb-12">

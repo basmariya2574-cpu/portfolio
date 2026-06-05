@@ -10,6 +10,7 @@ function Navbar() {
     "Education",
     "Internships",
     "Projects",
+    "Certificates",
     "Contact",
   ];
 
