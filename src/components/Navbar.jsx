@@ -7,7 +7,6 @@ function Navbar() {
   const links = [
     "About",
     "Skills",
-    "Education",
     "Internships",
     "Projects",
     "Certificates",

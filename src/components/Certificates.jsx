@@ -1,5 +1,42 @@
+import { motion } from "framer-motion";
 import { FaCertificate } from "react-icons/fa";
 import uipathcert from "../assets/uipath-certificate.jpg";
+
+const certificates = [
+  {
+    title: "UIPath RPA Internship Certificate",
+    description:
+      "Successfully completed internship training in UIPath Robotic Process Automation (RPA), gaining practical knowledge in workflow automation, business process optimization, and automation solutions.",
+    iconColor: "text-blue-500",
+    badge: "Certified",
+    badgeColor: "bg-blue-500/10 text-blue-400 border-blue-500/30",
+    image: uipathcert,
+  },
+  {
+    title: "Frontend Development Internship",
+    description:
+      "Completed internship experience in frontend development, building responsive web interfaces, React.js applications, reusable UI components, and modern user experiences.",
+    iconColor: "text-green-500",
+    badge: "Internship Completed",
+    badgeColor: "bg-green-500/10 text-green-400 border-green-500/30",
+    image: null,
+  },
+];
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const card = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0 },
+};
 
 function Certificates() {
   return (
@@ -9,68 +46,74 @@ function Certificates() {
     >
       <div className="max-w-7xl mx-auto px-6">
 
-        <h2 className="text-5xl font-bold text-center mb-4">
+        {/* Title */}
+        <motion.h2
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-4xl md:text-5xl font-bold text-center mb-4"
+        >
           Certifications & Internships
-        </h2>
+        </motion.h2>
 
-        <p className="text-center text-slate-400 mb-14">
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-center text-slate-400 mb-14"
+        >
           Professional training, certifications and internship experience.
-        </p>
+        </motion.p>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        {/* Grid */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-2 gap-8"
+        >
+          {certificates.map((item, index) => (
+            <motion.div
+              key={index}
+              variants={card}
+              whileHover={{ scale: 1.03 }}
+              className="bg-white/5 backdrop-blur-md border border-white/10 
+                         rounded-3xl p-8 shadow-xl transition-all duration-300"
+            >
+              {/* Icon */}
+              <FaCertificate className={`text-5xl mb-6 ${item.iconColor}`} />
 
-          {/* UIPath */}
-          <div className="bg-white text-slate-800 rounded-3xl p-8 shadow-xl hover:-translate-y-2 transition duration-300">
+              {/* Title */}
+              <h3 className="text-2xl font-bold mb-4">
+                {item.title}
+              </h3>
 
-            <FaCertificate className="text-5xl text-blue-600 mb-6" />
+              {/* Description */}
+              <p className="text-slate-300 leading-7">
+                {item.description}
+              </p>
 
-            <h3 className="text-2xl font-bold mb-4">
-              UIPath RPA Internship Certificate
-            </h3>
+              {/* Badge */}
+              <div className="mt-6 flex flex-col gap-5">
+                <span
+                  className={`inline-block px-4 py-2 rounded-full border text-sm font-medium w-fit ${item.badgeColor}`}
+                >
+                  {item.badge}
+                </span>
 
-            <p className="text-slate-600 leading-8">
-              Successfully completed internship training in
-              UIPath Robotic Process Automation (RPA),
-              gaining practical knowledge in workflow automation,
-              business process optimization, and automation solutions.
-            </p>
-
-            <div className="mt-6">
-              <span className="bg-blue-100 text-blue-600 px-4 py-2 rounded-full font-medium">
-                Certified
-              </span>
-             <img
-  src={uipathcert}
-  alt="UIPath Certificate"
-  className="w-full rounded-xl mb-5 border"
-/>
-
-            </div>
-          </div>
-
-          {/* Frontend */}
-          <div className="bg-white text-slate-800 rounded-3xl p-8 shadow-xl hover:-translate-y-2 transition duration-300">
-
-            <FaCertificate className="text-5xl text-green-600 mb-6" />
-
-            <h3 className="text-2xl font-bold mb-4">
-              Frontend Development Internship
-            </h3>
-
-            <p className="text-slate-600 leading-8">
-              Completed internship experience in frontend development,
-              building responsive web interfaces, React.js applications,
-              reusable UI components, and modern user experiences.
-            </p>
-
-            <div className="mt-6">
-              <span className="bg-green-100 text-green-600 px-4 py-2 rounded-full font-medium">
-                Internship Completed
-              </span>
-            </div>
-          </div>
-
-        </div>
+                {/* Image (only if exists) */}
+                {item.image && (
+                  <img
+                    src={item.image}
+                    alt="certificate"
+                    className="w-full rounded-xl border border-white/10 hover:scale-[1.02] transition"
+                  />
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
