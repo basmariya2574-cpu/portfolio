@@ -5,7 +5,7 @@ function Contact() {
   const socialLinks = [
     {
       icon: <FaEnvelope />,
-      link: "mailto:yourmail@gmail.com",
+      link: "mailto:basmariya2574@gmail.com",
       label: "Email",
     },
     {
